@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontale Galerij</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+    .horizontale-galerij-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .horizontale-galerij {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px;
+    }
+    .horizontale-galerij img {
+      height: 300px; /* Pas dit aan voor grotere of kleinere afbeeldingen */
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+    .fade-left,
+    .fade-right {
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .fade-left {
+      left: 0;
+      background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+    }
+    .fade-right {
+      right: 0;
+      background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+    }
+  </style>
+</head>
+<body>
+  <div class="horizontale-galerij-container">
+    <div class="horizontale-galerij">
+      <img src="https://via.placeholder.com/500x300/cccccc/000000?text=Afbeelding+1" alt="Afbeelding 1">
+      <img src="https://via.placeholder.com/500x300/999999/ffffff?text=Afbeelding+2" alt="Afbeelding 2">
+      <img src="https://via.placeholder.com/500x300/666666/ffffff?text=Afbeelding+3" alt="Afbeelding 3">
+      <img src="https://via.placeholder.com/500x300/333333/ffffff?text=Afbeelding+4" alt="Afbeelding 4">
+    </div>
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+  </div>
+</body>
+</html>
